@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+    <div class="card-body">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Starting Price: {{ product.price_1kg }} KES</p>
+        <a href="{% url 'create_order' product.id %}" class="btn btn-success">Customize & Order</a>
+    </div>
+</div>
+{% endblock %}

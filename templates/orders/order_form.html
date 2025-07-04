@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Customize Your Cake: {{ product.name }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        <label for="cake_size_kg">Cake Size (Kg):</label>
+        <select name="cake_size_kg" id="cake_size_kg" class="form-control" required>
+            <option value="">Select</option>
+            <option value="1.0">1 KG</option>
+            <option value="1.5">1.5 KG</option>
+            <option value="2.0">2 KG</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Occasion:</label>
+        <input type="text" name="occasion" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Preferred Colors:</label>
+        <input type="text" name="preferred_colors" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label>Toppings:</label>
+        <input type="text" name="toppings" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label>Delivery Date & Time:</label>
+        <input type="datetime-local" name="delivery_date" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Place Order</button>
+</form>
+{% endblock %}

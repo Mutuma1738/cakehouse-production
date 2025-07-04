@@ -1,0 +1,13 @@
+{% if messages %}
+<script>
+    {% for message in messages %}
+        Swal.fire({
+            icon: '{{ message.tags|escapejs }}',
+            title: '{{ message|escapejs }}',
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: false
+        });
+    {% endfor %}
+</script>
+{% endif %}
